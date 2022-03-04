@@ -1,0 +1,7 @@
+[workspace]
+members = [
+    "composite",
+    "bridge_pattern",
+    "abstract_factory",
+    "factory_method"
+]
