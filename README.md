@@ -12,5 +12,6 @@ According to [this book](https://rust-unofficial.github.io/patterns/), only very
 * Factory Method
 ### Structural Patterns
 * Bridge
+* Composite
 ### Behavioral Patterns
 
