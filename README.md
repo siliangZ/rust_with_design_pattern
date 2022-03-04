@@ -10,11 +10,7 @@ According to [this book](https://rust-unofficial.github.io/patterns/), only very
 ### Creational Patterns
 * Abstract Factory
 * Factory Method
-* Builder
 ### Structural Patterns
-* Composite
+* Bridge
 ### Behavioral Patterns
-* Command
-* interpreter
-* strategy
-* visitor
+
