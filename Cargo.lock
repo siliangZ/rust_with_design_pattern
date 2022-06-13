@@ -11,6 +11,10 @@ name = "bridge_pattern"
 version = "0.1.0"
 
 [[package]]
+name = "chain_of_responsibility"
+version = "0.1.0"
+
+[[package]]
 name = "composite"
 version = "0.1.0"
 

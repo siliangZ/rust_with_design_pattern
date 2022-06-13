@@ -3,5 +3,6 @@ members = [
     "composite",
     "bridge_pattern",
     "abstract_factory",
-    "factory_method"
+    "factory_method",
+    "chain_of_responsibility"
 ]
