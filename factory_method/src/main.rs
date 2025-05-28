@@ -1,34 +1,43 @@
 /// rust has a really good support on factory method
 
+trait Manipulator {}
 
-/// Two Major varieties
-trait Manipulator{}
-
-trait Figure{
+trait ManipulatorFactory {
     fn create_manipulator(&self) -> Box<dyn Manipulator>;
 }
 
-struct LineFigure;
+struct LineManipulatorFactory;
 struct LineManipulator;
-impl Manipulator for LineManipulator{}
-impl Figure for LineFigure{
-    fn create_manipulator(&self) -> Box<dyn Manipulator> { Box::new(LineManipulator{}) }
-}
-
-struct TextFigure;
-struct TextManipulator;
-impl Manipulator for TextManipulator{}
-impl Figure for TextFigure{
-
+impl Manipulator for LineManipulator {}
+impl ManipulatorFactory for LineManipulatorFactory {
     fn create_manipulator(&self) -> Box<dyn Manipulator> {
-        Box::new(TextManipulator{})
+        Box::new(LineManipulator {})
     }
 }
 
-/// parameterized factory method
-/// It is kind of hard to implement this in rust, we need to have dynamic dispatch
+struct TextManipulatorFactory;
+struct TextManipulator;
+impl Manipulator for TextManipulator {}
+impl ManipulatorFactory for TextManipulatorFactory {
+    fn create_manipulator(&self) -> Box<dyn Manipulator> {
+        Box::new(TextManipulator {})
+    }
+}
+
+struct FactoryMethod;
+
+impl FactoryMethod {
+    fn create_factory(&self, kind: &str) -> Box<dyn ManipulatorFactory> {
+        match kind {
+            "line" => Box::new(LineManipulatorFactory {}),
+            "text" => Box::new(TextManipulatorFactory {}),
+            _ => panic!("Invalid factory type"),
+        }
+    }
+}
 
 fn main() {
-    let test_figure:Box<dyn Figure> = Box::new(TextFigure{}); 
-    let manipulator = test_figure.create_manipulator();
+    let factory_method = FactoryMethod {};
+    let factory: Box<dyn ManipulatorFactory> = factory_method.create_factory("line");
+    let manipulator = factory.create_manipulator();
 }
