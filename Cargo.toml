@@ -5,4 +5,4 @@ members = [
     "abstract_factory",
     "factory_method",
     "chain_of_responsibility"
-]
+, "builder"]
